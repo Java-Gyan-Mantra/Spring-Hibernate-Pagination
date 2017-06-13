@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<head>
+<meta charset="ISO-8859-1" />
+<title>ITEMS-VIEW</title>
+</head>
+<body>
+	<div align="center">
+		<form action="/getItems">
+			<input type="text" name="first" placeholder="Start"
+				required="required" style="height: 20px; width: 100px;" /> <input
+				type="text" name="last" placeholder="End" required="required"
+				style="height: 20px; width: 100px;" /> <input type="submit"
+				value="SEARCH" />
+		</form>
+	</div>
+
+	<div id="wrapper">
+		<table id="keywords" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Date</th>
+					<th>UserId</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="lalign" th:each="item : ${items}">
+					<td th:text="${item.itemId}"></td>
+					<td th:text="${item.name}"></td>
+					<td th:text="${item.price}"></td>
+					<td th:text="${item.pDate}"></td>
+					<td th:text="${item.userId}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
